@@ -1,0 +1,76 @@
+
+<!--<input class="form-control" [formControl]="search">-->
+<div class="container">
+  <div class="row">
+  <form #f="ngForm">
+    <div class="mb-3">
+      <label>nom :</label>
+      <input class="form-control" name="nom"  [(ngModel)]="teams.name" #nom="ngModel">
+
+      <div *ngIf="nom.invalid && (nom.touched || nom.dirty)" class="alert alert-danger">
+        <div *ngIf="nom.errors!['required']">nom is required !</div>
+        <div *ngIf="nom.errors!['minlength']">nom must have at least 3 charachters</div>
+      </div>
+  </div>
+
+  <div class="mb-3">
+      <label>projectname :</label>
+      <input class="form-control" name="pname"  [(ngModel)]="teams.projectName" #pname="ngModel">
+      <div *ngIf="pname.invalid && (pname.touched || pname.dirty)" class="alert alert-danger">
+        <div *ngIf="pname.errors!['required']">pname is required !</div>
+        <div *ngIf="pname.errors!['minlength']">pname must have at least 3 charachters</div>
+      </div>
+  </div>
+  <div class="mb-3">
+      <label>level :</label>
+      <input class="form-control" name="level" [(ngModel)]="teams.level" #pname="ngModel">
+      <div *ngIf="pname.invalid && (pname.touched || pname.dirty)" class="alert alert-danger">
+        <div *ngIf="pname.errors!['required']">pname is required !</div>
+        <div *ngIf="pname.errors!['minlength']">pname must have at least 3 charachters</div>
+      </div>
+  </div>
+  <div class="mb-3">
+      <label>participants :</label>
+      <input class="form-control" name="participant"  [(ngModel)]="teams.participants" #participant="ngModel">
+  </div>
+  <div class="mb-3">
+      <label>projectDescription :</label>
+      <input class="form-control" name="pd"  [(ngModel)]="teams.projectDescription" required minlength="5" #pd="ngModel">
+      <div *ngIf="pd.invalid && (pd.touched || pd.dirty)" class="alert alert-danger">
+        <div *ngIf="pd.errors!['required']">pd is required !</div>
+        <div *ngIf="pd.errors!['minlength']">pd must have at least 3 charachters</div>
+      </div>
+  </div>
+  <!--<div class="mb-3" formGroupName="brand">
+      <label>Brand Name :</label>
+      <input class="form-control" formControlName="name">
+  <app-form-validation [control]="brandName"></app-form-validation>
+
+      <div *ngIf="brandName.invalid &&
+              (brandName.touched ||
+              brandName.dirty)">
+              <div *ngIf="brandName.errors!['required']">
+                  Brand Name is required
+              </div>
+              <div *ngIf="brandName.errors!['minlength']">
+                  Brand Name must have at least 3 characters
+              </div></div>
+      <label>Brand Logo :</label>
+      <input class="form-control" formControlName="logo">
+  </div>-->
+
+ <!-- <div class="mb-3" formArrayName="tags">
+      <label>Tags :</label>
+  <div *ngFor="let t of tags">
+      <input class="form-control" [formControl]="t">
+  </div>
+  <button (click)="addTags()">+</button>
+  </div>-->
+
+  <div class="mb-3">
+      <input type="submit" class="btn btn-primary" value="Add product" (click)="add(f)" [disabled]="f.invalid">
+  </div>
+</form>
+  </div>
+</div>
+
